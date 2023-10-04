@@ -1,0 +1,41 @@
+<nav ngxNavbarDynamicExpand class="text-center navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">CYA</a>
+    <button
+      class="navbar-toggler" type="button"(click)="collapse.toggle()" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span
+        class="navbar-toggler-icon d-flex align-items-center justify-content-center">
+      </span>
+    </button>
+    <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home<span class="sr-only"></span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Company</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Admin</a>
+        </li>
+        <li class="nav-item">
+        
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a class="nav-link" href="#">Login</a>
+        </li>
+        <li>
+            <a class="nav-link" routerLink="/register">Register </a>
+        </li>
+      </ul>
+
+    </ngx-navbar-collapse>
+  </div>
+</nav>

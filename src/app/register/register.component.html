@@ -1,0 +1,29 @@
+<div class="row justify-content-center">
+    <div class="col-sm-3">
+        <form  class="form-control mt-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <app-text-input [formControl]="$any(registerForm.controls['firstname'])" [label]="'First Name'" [type]="'text'"></app-text-input>
+          <app-text-input [formControl]="$any(registerForm.controls['lastname'])" [label]="'Last Name'" [type]="'text'"></app-text-input>
+          <app-text-input [formControl]="$any(registerForm.controls['username'])" [label]="'User Name'" [type]="'text'"></app-text-input>
+          <app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'Password'" [type]="'password'"></app-text-input>
+          <app-text-input [formControl]="$any(registerForm.controls['email'])" [label]="'Email'" [type]="'email'"></app-text-input>
+          <app-text-input [formControl]="$any(registerForm.controls['phonenumber'])" [label]="'Phone Number'" [type]="'text'"></app-text-input>      
+         
+          <div class="form-check" *ngFor="let role of roles">
+            <input class="form-check-input" type="checkbox" [value]="role"
+             id="flexCheck{{role}}"
+             (change)="onRoleChange(role, $event)">
+            <label class="form-check-label" [for]="'flexCheck' + role">
+              {{ role }}
+            </label>
+          </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <div class="row" *ngIf="validationErrors">
+            <ul class ="text-bg-danger">
+              <li *ngFor="let error of validationErrors">
+                {{error}}
+              </li>
+            </ul>
+        </div>
+    </div>
+</div>
