@@ -16,6 +16,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     TextInputComponent,
     LoginComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { LoginComponent } from './login/login.component';
       {path:'register', component: RegisterComponent},
       {path:'login', component: LoginComponent}
     ]),
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({positionClass:'toast-top-full-width'})
   ],
   providers: [],
   bootstrap: [AppComponent]

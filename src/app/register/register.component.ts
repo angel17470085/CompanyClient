@@ -4,6 +4,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angul
 import { AccountService } from '../_services/account.service';
 import { Router } from '@angular/router';
 import { timer} from 'rxjs'
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,7 +16,10 @@ export class RegisterComponent implements OnInit{
   registerForm : FormGroup = new FormGroup({});
   errorMessage: any;
   registrationSuccess = false;
-  constructor(private fb: FormBuilder, private acountService : AccountService, private router: Router){}
+  constructor(private fb: FormBuilder, private acountService : AccountService,
+     private router: Router,
+     private toastr: ToastrService
+     ){}
 
   ngOnInit(): void {
     this.initializeForm();
@@ -45,12 +49,12 @@ export class RegisterComponent implements OnInit{
         next: ()=>{
           this.validationErrors = null; //set this property to null to remove validation erros in the template
           this.registrationSuccess = true; //when this is true it will display an alert success message
-          timer(4000).subscribe( //wait for 4 seconds and navigate to login component
-            () =>{this.router.navigateByUrl("/login");}
-          )
+          this.toastr.success('Redirecting to login page','Registration Success');
+          this.router.navigateByUrl("/login");
         },
         error: (err)=>{
           this.validationErrors = err.error;
+          this.toastr.warning("Something went wrong",'Failed to register');
         }
       }
     );
