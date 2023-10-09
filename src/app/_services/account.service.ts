@@ -5,13 +5,16 @@ import { catchError } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountService {
-
-
   baseUrl = "http://www.companyemployees.codemaze";
   constructor(private http: HttpClient) { }
 
-  registerUser(model:any)
+  registerUser(registrationForm:any)
   {
-    return this.http.post(this.baseUrl+"/api/authentication",model);
+    return this.http.post(this.baseUrl+"/api/authentication",registrationForm);
+  }
+
+  login(loginForm: any)
+  {
+    return this.http.post(this.baseUrl+'/api/authentication/login',loginForm);
   }
 }

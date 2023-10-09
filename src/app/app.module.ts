@@ -17,6 +17,7 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,23 +25,17 @@ import { ToastrModule } from 'ngx-toastr';
     RegisterComponent,
     TextInputComponent,
     LoginComponent,
-  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxNavbarModule,
-    TooltipModule.forRoot(),
-    AlertModule.forRoot(),
+    SharedModule,
     RouterModule.forRoot([
       {path:'register', component: RegisterComponent},
       {path:'login', component: LoginComponent}
     ]),
     HttpClientModule,
-    ToastrModule.forRoot({positionClass:'toast-top-full-width'})
   ],
   providers: [],
   bootstrap: [AppComponent]

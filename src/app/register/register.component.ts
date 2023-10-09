@@ -13,23 +13,19 @@ import { ToastrService } from 'ngx-toastr';
 export class RegisterComponent implements OnInit{
   roles = ["Manager", "Administrator"];
   validationErrors : any;
-  registerForm : FormGroup = new FormGroup({});
   errorMessage: any;
   registrationSuccess = false;
-  constructor(private fb: FormBuilder, private acountService : AccountService,
+  constructor(private fb: FormBuilder, private accountService : AccountService,
      private router: Router,
      private toastr: ToastrService
      ){}
 
   ngOnInit(): void {
-    this.initializeForm();
   }
-
 
     //all of this controls are used by the text-input component
     // to make reusable inpusts except roles control
-    initializeForm(){
-      this.registerForm = this.fb.group({
+      registerForm = this.fb.group({
             firstname:['', Validators.required],
             lastname :['', Validators.required],
             username:['', Validators.required],
@@ -38,13 +34,10 @@ export class RegisterComponent implements OnInit{
             phonenumber:['', Validators.required],
             roles: this.fb.array([], Validators.required)
           });
-    }
-  
-
-    
+          
   onSubmit(){
     console.log(this.registerForm.value)
-    this.acountService.registerUser(this.registerForm.value).subscribe(
+    this.accountService.registerUser(this.registerForm.value).subscribe(
       {
         next: ()=>{
           this.validationErrors = null; //set this property to null to remove validation erros in the template
