@@ -33,11 +33,7 @@ import { ReadCompaniesComponent } from './companies/read-companies/read-companie
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule.forRoot([
-      {path:'register', component: RegisterComponent},
-      {path:'login', component: LoginComponent},
-      {path:'readCompanies', component: ReadCompaniesComponent}
-    ]),
+    RouterModule,
     HttpClientModule,
   ],
   providers: [],
