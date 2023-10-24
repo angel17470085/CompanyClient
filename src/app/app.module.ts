@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
+import { ReadCompaniesComponent } from './companies/read-companies/read-companies.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
     RegisterComponent,
     TextInputComponent,
     LoginComponent,
+    ReadCompaniesComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     RouterModule.forRoot([
       {path:'register', component: RegisterComponent},
-      {path:'login', component: LoginComponent}
+      {path:'login', component: LoginComponent},
+      {path:'readCompanies', component: ReadCompaniesComponent}
     ]),
     HttpClientModule,
   ],

@@ -4,7 +4,7 @@
       <p class="text-danger" *ngFor="let error of validationErrors | keyvalue"><strong>*{{error.value}}</strong></p>
     </div>
       
-    <form class="form-control mt-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form class="form-control mt-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
       <h2 class="mb-3">Sign up</h2>
       <app-text-input [formControl]="$any(registerForm.controls['firstname'])" [label]="'First Name'"
         [type]="'text'"></app-text-input>
