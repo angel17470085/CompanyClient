@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { ReadCompaniesComponent } from './companies/read-companies/read-companies.component';
+import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { ReadCompaniesComponent } from './companies/read-companies/read-companie
     TextInputComponent,
     LoginComponent,
     ReadCompaniesComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
