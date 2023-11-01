@@ -1,4 +1,4 @@
 export const environment ={
     production :false,
-    baseUrl : "http://www.companyemployees.codemaze"
+    apiUrl:'http://192.168.0.183:80'
 }

@@ -3,11 +3,12 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http'
 import { BehaviorSubject, catchError, map, throwError } from 'rxjs';
 import { JWTTokenService } from './jwttoken.service';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = "http://www.companyemployees.codemaze";
+  baseUrl = environment.apiUrl;
   private currentUserSource = new BehaviorSubject<string | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 

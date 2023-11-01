@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class CompaniesCrudService {
   constructor(private jwt: JWTTokenService, private http: HttpClient) { }
-baseUrl = environment.baseUrl;
+baseUrl = environment.apiUrl;
 
   getCompanies() : Observable<any>{
     const token = this.jwt.getToken();

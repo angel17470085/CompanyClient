@@ -63,6 +63,10 @@
             "production": {
               "browserTarget": "CompanyClient:build:production"
             },
+            "options": {
+              "browserTarget": "CompanyClient:build:development",
+              "proxyConfig": "proxy.conf.json"
+            },
             "development": {
               "browserTarget": "CompanyClient:build:development"
             }
